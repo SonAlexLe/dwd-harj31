@@ -1,6 +1,8 @@
 # Frontend for kurkkumopo exercise
 
-Credit: Sasu Mäkinen and Jami Kousa from MOOC Devops with Docker at the University of Helsinki.
+A repo for exercise 3.1 of the MOOC Devops with Docker at the University of Helsinki.
+
+Credit: Sasu Mäkinen and Jami Kousa from the same course.
 
 Cloned and modified from https://github.com/docker-hy/ml-kurkkumopo-frontend.
 
