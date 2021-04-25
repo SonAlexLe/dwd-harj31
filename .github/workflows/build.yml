@@ -12,23 +12,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # Checkout to the repository (the actions don't actually need this since they use the repository context anyway)
-    - uses: actions/checkout@v2 
+    - uses: actions/checkout@v2
 
-    # We need to login so we can later push the image without issues. 
-    - name: Login to DockerHub
-      uses: docker/login-action@v1 
-      with: 
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    # no need to push to DockerHub as I do not use watchtower
+    # # We need to login so we can later push the image without issues. 
+    # - name: Login to DockerHub
+    #   uses: docker/login-action@v1 
+    #   with: 
+    #     username: ${{ secrets.DOCKERHUB_USERNAME }}
+    #     password: ${{ secrets.DOCKERHUB_TOKEN }}
             
-    # Builds devopsdockeruh/docker-hy.github.io
-    - name: Build and push
-      uses: docker/build-push-action@v2
-      with:
-        push: true
-        tags: sonalexle/ml-frontend:latest
+    # # Builds devopsdockeruh/docker-hy.github.io
+    # - name: Build and push
+    #   uses: docker/build-push-action@v2
+    #   with:
+    #     push: true
+    #     tags: sonalexle/ml-frontend:latest
 
-    - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+    - uses: akhileshns/heroku-deploy@v3.12.12 # This is the CI solution
       with:
         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
         heroku_app_name: ${{secrets.HEROKU_APP_NAME}} #Must be unique in Heroku
