@@ -2,6 +2,7 @@ version: "3.9"
 services:
     ml-frontend:
         build: .
+        image: sonalexle/ml-frontend
         ports:
             - 80:3000
             - 443:3000
