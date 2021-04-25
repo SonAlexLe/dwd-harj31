@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+    ml-frontend:
+        build: .
+        ports:
+            - 80:3000
+            - 443:3000
+        container_name: ml-frontend
+    watchtower:
+        image: containrrr/watchtower
+        environment:
+            -  WATCHTOWER_POLL_INTERVAL=60 # Poll every 60 seconds
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        container_name: watchtower
